@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated class="">
       <q-toolbar>
         <q-btn
           flat
@@ -12,10 +12,10 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Cadastro de Empresas
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <img v-bind:src='img' align="center" width="50" alt="Logo" margin-right="50"/>
       </q-toolbar>
     </q-header>
 
@@ -71,6 +71,7 @@ export default defineComponent({
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
+      img: './src/assets/logo.png',
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }
