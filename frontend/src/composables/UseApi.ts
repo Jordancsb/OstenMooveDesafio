@@ -28,9 +28,9 @@ export default function useApi (url: never) {
     }
   }
 
-  const remove = async (form: number) => {
+  const remove = async (id: number) => {
     try {
-      const { data } = await api.put(`${url}/${form.id}`)
+      const { data } = await api.delete(`${url}/${id}`)
       return data
     } catch (error: any) {
       throw new Error(error.message)
