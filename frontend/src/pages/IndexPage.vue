@@ -5,11 +5,12 @@
         :rows="posts"
         :columns="columns"
         row-key="name"
+        :filter="filter"
       >
       <template v-slot:top>
             <q-btn color="primary" label="Novo" :to="{ name: 'formArticle' }" />
             <q-space />
-            <q-input borderless dense debounce="300" color="primary" v-model="filter">
+            <q-input border dense debounce="300" color="" v-model="filter">
           <template v-slot:append>
             <q-icon name="search" />
           </template>
@@ -17,7 +18,8 @@
       </template>
 
       <template v-slot:body-cell-actions="props">
-         <q-td :props="props">
+         <q-td :props="props" class="q-gutter-sm">
+          <q-btn icon="edit" color="info" dense size="sm" @click="handleEditPost(props.row.id)" />
           <q-btn icon="delete" color="negative" dense size="sm" @click="handleDeletePost(props.row.id)" />
          </q-td>
       </template>
@@ -29,21 +31,24 @@
 import { ref, onMounted } from 'vue'
 import postService from 'src/services/posts'
 import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 
 export default ({
   name: 'IndexPage',
   setup () {
     const posts = ref([])
+    const filter = ref('')
     const { list, remove } = postService()
     const columns = [
       { name: 'id', field: 'id', align: 'center', label: 'id', sortable: true },
-      { name: 'Modelo', field: 'modelo', align: 'center', label: 'Modelo', sortable: true },
-      { name: 'Marca', field: 'marca', align: 'center', label: 'Marca', sortable: true },
-      { name: 'Ano', field: 'marca', align: 'center', label: 'Marca', sortable: true },
-      { name: 'Cor', field: 'cor', align: 'center', label: 'Marca', sortable: true },
+      { name: 'modelo', field: 'modelo', align: 'center', label: 'Modelo', sortable: true },
+      { name: 'marca', field: 'marca', align: 'center', label: 'Marca', sortable: true },
+      { name: 'ano', field: 'ano', align: 'center', label: 'Ano', sortable: true },
+      { name: 'cor', field: 'cor', align: 'center', label: 'Cor', sortable: true },
       { name: 'actions', field: 'actions', align: 'right', label: 'Açoes' }
     ]
     const $q = useQuasar()
+    const router = useRouter()
 
     onMounted(() => {
       getPosts()
@@ -75,10 +80,16 @@ export default ({
       }
     }
 
+    const handleEditPost = (id) => {
+      router.push({ name: 'formArticle', params: { id } })
+    }
+
     return {
       posts,
       columns,
-      handleDeletePost
+      handleDeletePost,
+      handleEditPost,
+      filter
     }
   }
 })

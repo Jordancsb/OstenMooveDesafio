@@ -10,6 +10,15 @@ export default function useApi (url: never) {
     }
   }
 
+  const getById = async (id: number) => {
+    try {
+      const { data } = await api.get(`${url}/${id}`)
+      return data
+    } catch (error: any) {
+      throw new Error(error.message)
+    }
+  }
+
   const post = async (form: never) => {
     try {
       const { data } = await api.post(url, form)
@@ -19,7 +28,7 @@ export default function useApi (url: never) {
     }
   }
 
-  const update = async (form: number) => {
+  const update = async (form: any) => {
     try {
       const { data } = await api.put(`${url}/${form.id}`, form)
       return data
@@ -41,6 +50,7 @@ export default function useApi (url: never) {
     list,
     post,
     update,
-    remove
+    remove,
+    getById
   }
 }

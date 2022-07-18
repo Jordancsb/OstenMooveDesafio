@@ -2,8 +2,7 @@
   <q-page padding>
     <q-form
       @submit="onSubmit"
-      @reset="onReset"
-      class="column "
+      class="column"
     >
       <q-input
           outlined
@@ -46,15 +45,18 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import postService from 'src/services/posts'
 import { useQuasar } from 'quasar'
+import { useRouter, useRoute } from 'vue-router'
 
 export default ({
   name: 'FormArticle',
   setup () {
-    const { post } = postService()
+    const { post, getById, update } = postService()
     const $q = useQuasar()
+    const router = useRouter()
+    const route = useRoute()
     const form = ref({
       marca: '',
       modelo: '',
@@ -62,9 +64,30 @@ export default ({
       cor: ''
     })
 
+    onMounted(async () => {
+      if (route.params.id) {
+        getPost(route.params.id)
+      }
+    })
+
+    const getPost = async (id) => {
+      try {
+        const response = await getById(id)
+        form.value = response
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
     const onSubmit = async () => {
       try {
-        await post(form.value)
+        if (!form.value.id) {
+          await post(form.value)
+        } else {
+          await update(form.value)
+        }
+        $q.notify({ message: 'Cadastrado com Sucesso', icon: 'check', color: 'positive' })
+        router.push({ name: 'home' })
       } catch (err) {
         console.error(err)
       }
