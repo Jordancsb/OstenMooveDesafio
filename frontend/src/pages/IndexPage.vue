@@ -41,10 +41,17 @@ export default ({
     const { list, remove } = postService()
     const columns = [
       { name: 'id', field: 'id', align: 'center', label: 'id', sortable: true },
-      { name: 'modelo', field: 'modelo', align: 'center', label: 'Modelo', sortable: true },
-      { name: 'marca', field: 'marca', align: 'center', label: 'Marca', sortable: true },
-      { name: 'ano', field: 'ano', align: 'center', label: 'Ano', sortable: true },
-      { name: 'cor', field: 'cor', align: 'center', label: 'Cor', sortable: true },
+      { name: 'razao', field: 'razao', align: 'center', label: 'Razão Social', sortable: true },
+      { name: 'fantasia', field: 'fantasia', align: 'center', label: 'Nome Fantasia', sortable: true },
+      { name: 'cnpj', field: 'cnpj', align: 'center', label: 'CNPJ', sortable: true },
+      { name: 'rua', field: 'rua', align: 'center', label: 'Rua', sortable: true },
+      { name: 'numero', field: 'numero', align: 'center', label: 'Número', sortable: true },
+      { name: 'bairro', field: 'bairro', align: 'center', label: 'Bairro', sortable: true },
+      { name: 'cidade', field: 'cidade', align: 'center', label: 'Cidade', sortable: true },
+      { name: 'estado', field: 'estado', align: 'center', label: 'UF', sortable: true },
+      { name: 'telefone', field: 'telefone', align: 'center', label: 'Telefone', sortable: true },
+      { name: 'created_at', field: 'created_at', align: 'center', label: 'Criado em:', sortable: true },
+      { name: 'updated_at', field: 'updated_at', align: 'center', label: 'Alterado em:', sortable: true },
       { name: 'actions', field: 'actions', align: 'right', label: 'Açoes' }
     ]
     const $q = useQuasar()

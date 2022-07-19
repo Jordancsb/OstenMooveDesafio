@@ -6,35 +6,86 @@
     >
       <q-input
           outlined
-          v-model="form.marca"
-          label="Marca"
+          v-model="form.razao"
+          label="Razão Social"
+          lazy-rules
+          class="col-3 col-xs-12"
+          :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
+        />
+      <q-input
+          outlined
+          v-model="form.fantasia"
+          label="Nome Fantasia"
           lazy-rules
           class="col-lg-6 col-xs-12"
           :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
         />
       <q-input
           outlined
-          v-model="form.modelo"
-          label="Modelo"
+          v-model="form.cnpj"
+          label="CNPJ sem pontos, traços e barras"
           lazy-rules
           class="col-lg-6 col-xs-12"
+          :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
+          maxlength="15"
+        />
+      <q-input
+          outlined
+          v-model="form.rua"
+          label="Rua"
+          lazy-rules
+          class="col-lg-6 col-xs-9"
           :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
         />
       <q-input
           outlined
-          v-model="form.ano"
-          label="Ano"
+          v-model="form.numero"
+          label="Número"
           lazy-rules
-          class="col-lg-6 col-xs-12"
+          class="col-lg-6 col-xs-3"
+          :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
+          maxlength="6"
+        />
+      <q-input
+          outlined
+          v-model="form.complemento"
+          label="Complemento"
+          lazy-rules
+          class="col-lg-6 col-xs-3"
+        />
+      <q-input
+          outlined
+          v-model="form.bairro"
+          label="Bairro"
+          lazy-rules
+          class="col-lg-6 col-xs-6"
           :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
         />
       <q-input
           outlined
-          v-model="form.cor"
-          label="Cor"
+          v-model="form.cidade"
+          label="Cidade"
           lazy-rules
-          class="col-lg-6 col-xs-12"
+          class="col-lg-6 col-xs-2"
           :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
+        />
+      <q-input
+          outlined
+          v-model="form.estado"
+          label="UF"
+          lazy-rules
+          class="col-lg-6 col-xs-1"
+          :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
+        />
+      <q-input
+          outlined
+          v-model="form.telefone"
+          label="Telefone"
+          type="phone"
+          lazy-rules
+          class="col-lg-6 col-xs-3"
+          :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
+          maxlength="11"
         />
         <div class="col-12">
           <q-btn label="Salvar" color="primary" type="submit"/>
@@ -58,10 +109,16 @@ export default ({
     const router = useRouter()
     const route = useRoute()
     const form = ref({
-      marca: '',
-      modelo: '',
-      ano: '',
-      cor: ''
+      razao: '',
+      fantasia: '',
+      cnpj: '',
+      rua: '',
+      numero: '',
+      complemento: '',
+      bairro: '',
+      cidade: '',
+      estado: '',
+      telefone: ''
     })
 
     onMounted(async () => {

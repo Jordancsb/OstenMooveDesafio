@@ -5,5 +5,5 @@ Route.group(() => {
     return { hello: 'world' }
   })
 
-  Route.resource('/vehicles', 'VehiclesController').apiOnly()
+  Route.resource('/companies', 'CompaniesController').apiOnly()
 }).prefix('/api')
