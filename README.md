@@ -64,7 +64,7 @@ Você deve construir o projeto front-end e back-end em um repositório Git únic
 Aplicação de Cadastro de Empresas integrando entre o back-end em Node.js usando TypeScript e AdonisJS com front-end em Quasar VueJS, conectado e armazenado banco de dados local (SQLite) usando um ORM (Lucid). Utilizando Arquitetura MVC, pontos de APIRestful e CleanCode.
 
 ## Diagrama
-<img width="700" src="frontend\src\assets\diagrama.JPG">
+<img align="center" width="1000" src="frontend\src\assets\diagrama.JPG">
 
 ### Rodando a aplicação
 
