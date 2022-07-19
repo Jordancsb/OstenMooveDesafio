@@ -61,7 +61,7 @@ Você deve construir o projeto front-end e back-end em um repositório Git únic
 </details>
 
 ## Projeto
-Aplicação de Cadastro de Empresas integrando entre o back-end em Node.js usando TypeScript e AdonisJS com front-end em Quasar VueJS, conectado e armazenado banco de dados local (SQLite) usando um ORM (Lucid). Utilizando Arquitetura MVC, pontos de APIRestful, CleanCode e Design Pattern.
+Aplicação de Cadastro de Empresas integrando entre o back-end em Node.js usando TypeScript e AdonisJS com front-end em Quasar VueJS, conectado e armazenado banco de dados local (SQLite) usando um ORM (Lucid). Utilizando Arquitetura MVC, pontos de APIRestful e CleanCode.
 
 ## Diagrama
 <img width="700" src="frontend\src\assets\diagrama.JPG">
@@ -133,6 +133,9 @@ npm i -D git-commit-msg-linter
 - Node v16.15.1
 - npm 8.11.0
 - SQLite
+- Bekeeper Studio
+- Git
+- 
 
 ### Autor
 Jordan Cruz
