@@ -23,11 +23,11 @@
       <q-input
           outlined
           v-model="form.cnpj"
-          label="CNPJ sem pontos, traços e barras"
+          label="CNPJ com pontos, traços e barra"
           lazy-rules
           class="col-lg-6 col-xs-12"
           :rules="[ val => val && val.length > 0 || 'Campo Obrigatório']"
-          maxlength="15"
+          maxlength="19"
         />
       <q-input
           outlined
@@ -52,7 +52,9 @@
           label="Complemento"
           lazy-rules
           class="col-lg-6 col-xs-3"
+          :rules="[ val => val && val.length >= 0]"
         />
+
       <q-input
           outlined
           v-model="form.bairro"
@@ -143,7 +145,7 @@ export default ({
         } else {
           await update(form.value)
         }
-        $q.notify({ message: 'Cadastrado com Sucesso', icon: 'check', color: 'positive' })
+        $q.notify({ message: 'Atualizado com Sucesso', icon: 'check', color: 'positive' })
         router.push({ name: 'home' })
       } catch (err) {
         console.error(err)
