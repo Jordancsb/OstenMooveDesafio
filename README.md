@@ -78,7 +78,7 @@ Agora dentro da pasta frontend execute o comando
 ```bash
 npx quasar dev
 ```
-Aplicação abrirá em na Porta 9000 -> E exibirá a seguinte tela!
+Aplicação abrirá na Porta 9000 -> Com a rota raiz para tabela de empresas e localhost:9000/#/form-articles' para model de cadastro e atualização dos dados.
 
 O teste de API foi feito através o Thunder Client, uma extensão do Visual Studio Code!
 
@@ -135,7 +135,6 @@ npm i -D git-commit-msg-linter
 - SQLite
 - Bekeeper Studio
 - Git
-- 
 
 ### Autor
 Jordan Cruz
