@@ -135,6 +135,7 @@ npm i -D git-commit-msg-linter
 - SQLite
 - Bekeeper Studio
 - Git
+- Jest
 
 ### Autor
 Jordan Cruz
