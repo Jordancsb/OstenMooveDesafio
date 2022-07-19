@@ -60,42 +60,79 @@ Você deve construir o projeto front-end e back-end em um repositório Git únic
 </div>
 </details>
 
-### Projeto
-<img width="700" src="">
+## Projeto
+Aplicação de Cadastro de Empresas integrando entre o back-end em Node.js usando TypeScript e AdonisJS com front-end em Quasar VueJS, conectado e armazenado banco de dados local (SQLite) usando um ORM (Lucid). Utilizando Arquitetura MVC, pontos de APIRestful, CleanCode e Design Pattern.
 
-#### Diagrama
-<img width="700" src="">
+## Diagrama
+<img width="700" src="frontend\src\assets\diagrama.JPG">
 
-### Instalação
+### Rodando a aplicação
 
-Use o gerenciador de pacotes node [npm](https://docs.npmjs.com/cli/v8/commands/npm-init) para iniciar a aplicação e criar as configurações iniciais.
+Baixe ou clone a aplicação em sua máquina, dentro da pasta backend execute o comando:
+```bash
+node ace serve --watch
+```
+Aplicação abrirá em na Porta 3333 -> Rotas estão agrupadas, portando a raiz exibirá Hello World por default e métodos estão dentro do caminho 'localhost:3333/api/companies'
+
+Agora dentro da pasta frontend execute o comando 
+```bash
+npx quasar dev
+```
+Aplicação abrirá em na Porta 9000 -> E exibirá a seguinte tela!
+
+O teste de API foi feito através o Thunder Client, uma extensão do Visual Studio Code!
+
+A Visualização das tabelas criadas foi atraves do SQLite Viewer (Internamente) e do Bekeeper Studio (Externamente)
+
+## Criação
+### Instalação e Preparação - Ambiente Backend
+
+Use o gerenciador de pacotes node [npm](https://docs.adonisjs.com/guides/installation) para iniciar a aplicação e criar as configurações iniciais.
 
 ```bash
-npm init -y
+npm init adonis-ts-app@latest hello-world
 ```
-Ainda com npm instale o [express](https://www.npmjs.com/package/expresst) para contrução da API, [nodemon](https://www.npmjs.com/package/nodemon) para atualização simultanea do servidor backend, [axios](https://www.npmjs.com/package/axios) para requisições HTTP baseado-em-promessas para o node.js e para o navegador [cors](https://www.npmjs.com/package/cors) para permitir que a fetch do Frontend comunique com a porta do servidor declarado no Backend
+
 ```bash
-npm i express axios cors nodemon
+node ace serve --watch
 ```
+
+### Instalação e Preparação - Ambiente Frontend
+
+Use o gerenciador de pacotes node [npm](https://quasar.dev/start/quasar-cli) para iniciar a aplicação e criar a estrutura de pastas inicial.
+
+```bash
+$ npm i -g @quasar/cli
+$ npm init quasar
+```
+Verifique os scripts do package.json
+
+```bash
+// package.json
+"scripts": {
+  "dev": "quasar dev",
+  "build": "quasar build",
+  "build:pwa": "quasar build -m pwa"
+}
+```
+E inicie a aplicação com comando abaixo:
+
+```bash
+npx quasar dev
+```
+### Algumas configurações 
+
 Conventional Commits é uma convenção em cima dos commits que fornece um conjunto fácil de regras para criar um histórico de confirmação explícito; o que torna mais fácil escrevê-los e identifica-los. 
 ```bash
 npm i -D git-commit-msg-linter
 ```
-### Algumas configurações API
-
-
-### Como usar
-Suba o servidor backend com comando:
-```bash
-npm start
-```
-Execute o index.html para exibir o frontend - Abra-o com Lite Server ou Preview de HTML de sua preferencia
 
 ### Ferramentas Utilizadas
 - Visual Studio Code
 - WSL Ubuntu 20.04LTS
 - Node v16.15.1
 - npm 8.11.0
+- SQLite
 
 ### Autor
 Jordan Cruz
