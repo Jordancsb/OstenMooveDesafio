@@ -30,7 +30,7 @@ export default function useApi (url: never) {
 
   const update = async (form: any) => {
     try {
-      const { data } = await api.put(`${url}/${form.id}`, form)
+      const { data } = await api.put(`${url}/${form.id}`)
       return data
     } catch (error: any) {
       throw new Error(error.message)

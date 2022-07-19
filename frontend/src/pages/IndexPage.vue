@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { ref, onMounted, readonly } from 'vue'
+import { ref, onMounted } from 'vue'
 import postService from 'src/services/posts'
 import { useQuasar } from 'quasar'
 import { useRouter } from 'vue-router'
@@ -38,7 +38,6 @@ export default ({
   setup () {
     const posts = ref([])
     const filter = ref('')
-    const readonlyField = readonly('')
     const { list, remove } = postService()
     const columns = [
       { name: 'id', field: 'id', align: 'center', label: 'id', sortable: true },

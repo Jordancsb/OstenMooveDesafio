@@ -140,10 +140,10 @@ export default ({
 
     const onSubmit = async () => {
       try {
-        if (!form.value.id) {
-          await post(form.value)
-        } else {
+        if (form.value.id) {
           await update(form.value)
+        } else {
+          await post(form.value)
         }
         $q.notify({ message: 'Atualizado com Sucesso', icon: 'check', color: 'positive' })
         router.push({ name: 'home' })
@@ -157,7 +157,6 @@ export default ({
       onSubmit
     }
   }
-
 })
 
 </script>
